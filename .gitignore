@@ -18,3 +18,9 @@ build/
 # Knowledge graph
 graphify-out/
 graphify/
+
+.gitignore
+
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
