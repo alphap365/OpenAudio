@@ -9,12 +9,18 @@ authors = [
 keywords = ["music", "downloader", "spotify", "youtube", "ytmusic", "termux", "tui", "offline-player"]
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Environment :: Console",
     "Topic :: Multimedia :: Sound/Audio",
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 dependencies = [
     "yt-dlp>=2024.8.0",
     "textual>=0.50.0",

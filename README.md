@@ -25,7 +25,7 @@ Open-Source Music Aggregator for Spotify, YouTube, and YouTube Music. Downloads 
 
 ### Installation
 
-OpenAudio requires Python 3.13 or newer and FFmpeg.
+OpenAudio requires Python 3.10 or newer and FFmpeg.
 
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if it is not already available, then clone and sync the project:
 
