@@ -2,7 +2,6 @@ import os
 import platform
 import shutil
 import socket
-import sys
 from pathlib import Path
 
 def is_termux() -> bool:

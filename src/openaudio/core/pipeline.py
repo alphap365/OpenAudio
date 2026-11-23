@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Callable, List, Optional
+from typing import Callable, Optional
 import yt_dlp
 
 from openaudio.core.downloader import AudioDownloader

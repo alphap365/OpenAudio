@@ -1,24 +1,16 @@
 from pathlib import Path
-from typing import List, Optional
+from typing import Optional
 from rich import box
 from rich.console import Console
 from rich.panel import Panel
 from rich.progress import (
-    BarColumn,
-    DownloadColumn,
-    MofNCompleteColumn,
     Progress,
-    SpinnerColumn,
     TaskID,
-    TextColumn,
-    TimeElapsedColumn,
-    TimeRemainingColumn,
-    TransferSpeedColumn,
 )
 from rich.table import Table
 from rich.text import Text
 
-from openaudio.core.models import DownloadProgress, PlaylistInfo, TrackMetadata, TrackStatus
+from openaudio.core.models import PlaylistInfo
 
 console = Console()
 
@@ -76,7 +68,7 @@ class DownloadUI:
 
     def display_completion_summary(self, successful: int, failed: int, total: int, out_dir: Path):
         text = Text()
-        text.append(f"[ BATCH COMPLETED ]\n\n", style="bold white")
+        text.append("[ BATCH COMPLETED ]\n\n", style="bold white")
         text.append(f"• SUCCESSFULLY DOWNLOADED: {successful} / {total}\n", style="bold white")
         if failed > 0:
             text.append(f"• FAILED TRACKS: {failed}\n", style="dim")

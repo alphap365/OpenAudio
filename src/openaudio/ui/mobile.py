@@ -1,11 +1,9 @@
-import os
 import sys
 from pathlib import Path
 from rich.console import Console
 from rich.prompt import Prompt
 
 from openaudio.core.config import get_download_options, load_config, save_config
-from openaudio.core.models import DownloadProgress, PlaylistInfo, TrackStatus
 from openaudio.utils.system import get_default_music_dir
 
 class MobileUI:

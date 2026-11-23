@@ -1,24 +1,18 @@
-import argparse
 from concurrent.futures import ThreadPoolExecutor
 import sys
 import threading
-import time
-from pathlib import Path
-from typing import List, Optional
 from rich.console import Console
 from rich.progress import (
     BarColumn,
     MofNCompleteColumn,
     Progress,
     SpinnerColumn,
-    TaskID,
     TextColumn,
     TimeRemainingColumn,
-    TransferSpeedColumn,
 )
 
-from openaudio.core.config import get_download_options, load_config
-from openaudio.core.models import DownloadOptions, DownloadProgress, PlaylistInfo, TrackStatus
+from openaudio.core.config import load_config
+from openaudio.core.models import DownloadOptions, DownloadProgress, TrackStatus
 from openaudio.core.pipeline import DownloadPipeline
 from openaudio.ui.mobile import MobileUI
 from openaudio.ui.progress import DownloadUI
@@ -29,7 +23,6 @@ from openaudio.utils.system import (
     get_ffmpeg_path,
     get_platform_name,
     is_ffmpeg_available,
-    is_narrow_screen,
 )
 
 console = Console()

@@ -1,6 +1,6 @@
 import re
 import urllib.parse
-from typing import List, Optional, Tuple
+from typing import List, Optional
 import yt_dlp
 
 from openaudio.core.models import PlaylistInfo, TrackMetadata

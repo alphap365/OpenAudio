@@ -1,10 +1,6 @@
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-import os
-import shutil
-import sys
 import threading
-import time
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -12,7 +8,7 @@ from rich.text import Text
 from textual import work
 from textual.app import App, ComposeResult
 from textual.binding import Binding
-from textual.containers import Center, Container, Grid, Horizontal, Middle, ScrollableContainer, Vertical
+from textual.containers import Center, Horizontal, Vertical
 from textual.widgets import (
     Button,
     DataTable,
@@ -26,14 +22,11 @@ from textual.widgets import (
 
 from openaudio import __version__
 from openaudio.core.config import get_download_options, load_config, save_config
-from openaudio.core.models import DownloadOptions, DownloadProgress, PlaylistInfo, TrackMetadata, TrackStatus
+from openaudio.core.models import DownloadProgress, PlaylistInfo
 from openaudio.core.pipeline import DownloadPipeline
 from openaudio.utils.formatting import format_duration
 from openaudio.utils.system import (
-    check_internet_connection,
     get_default_music_dir,
-    get_ffmpeg_path,
-    is_ffmpeg_available,
 )
 
 BANNER_BLOCK = """
