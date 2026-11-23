@@ -1,5 +1,7 @@
 <img width="828" height="294" alt="openaudio" src="docs/assets/banner.webp" />
 
+> **Notice:** OpenAudio is based on and is a copy of the [radiantfalcon/OpenTunes](https://github.com/radiantfalcon/OpenTunes) codebase, updated and maintained for use as OpenAudio.
+
 Open-Source Music Aggregator for Spotify, YouTube, and YouTube Music. Downloads songs, albums, and playlists with embedded cover art and lyrics. Available for Linux, Windows, MacOS and Android (Termux)
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
