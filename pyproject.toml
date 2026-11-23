@@ -1,12 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "openaudio"
+name = "pyopenaudio"
 version = "1.0.0"
 description = "Lightweight, cross-platform music downloader and offline music player for YouTube Music & Spotify."
 readme = "README.md"
-authors = [
-    { name = "alphap365", email = "arajitpaul2010@gmail.com" },
-]
-keywords = ["music", "downloader", "spotify", "youtube", "ytmusic", "termux", "tui", "offline-player"]
+authors = [{name = "alphap365", email = "arajitpaul2010@gmail.com"}]
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
@@ -15,12 +17,23 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
     "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Sound/Audio :: Players",
 ]
 requires-python = ">=3.10"
+keywords = [
+    "music",
+    "downloader",
+    "spotify",
+    "youtube",
+    "ytmusic",
+    "termux",
+    "tui",
+    "offline-player",
+]
 dependencies = [
     "yt-dlp>=2024.8.0",
     "textual>=0.50.0",
@@ -31,16 +44,51 @@ dependencies = [
     "spotipy>=2.24.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/alphap365/openaudio"
+
 [project.scripts]
 openaudio = "openaudio:main"
 
-[build-system]
-requires = ["uv_build>=0.13.8,<0.14.0"]
-build-backend = "uv_build"
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["openaudio*"]
+
+[tool.setuptools.package-data]
+openaudio = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ty.environment]
+python-version = "3.10"
+
+[tool.ty.rules]
+import-not-found = "ignore"
+
+[tool.ty.src]
+include = ["src/openaudio"]
 
 [dependency-groups]
 dev = [
-    "pytest>=9.2.0",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-vcr>=1.0",
+    "respx>=0.20",
+    "tox>=4.0",
+    "pytest-mock>=3.0",
+    "cibuildwheel",
+    "tomli>=2.0; python_version < '3.11'",
     "ruff>=0.17.6",
-    "ty>=0.0.108",
+    "ty>=0.0.107",
 ]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
