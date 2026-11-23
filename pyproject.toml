@@ -1,15 +1,12 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "opentunes"
-version = "1.0.1"
+version = "1.0.2"
 description = "Lightweight, cross-platform music downloader and offline music player for YouTube Music & Spotify."
 readme = "README.md"
-requires-python = ">=3.8"
-license = { text = "MIT" }
-authors = [{ name = "radiantfalcon" }]
+authors = [
+    { name = "alphap365", email = "arajitpaul2010@gmail.com" },
+    { name = "radiantfalcon" }
+]
 keywords = ["music", "downloader", "spotify", "youtube", "ytmusic", "termux", "tui", "offline-player"]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -18,6 +15,7 @@ classifiers = [
     "Environment :: Console",
     "Topic :: Multimedia :: Sound/Audio",
 ]
+requires-python = ">=3.13"
 dependencies = [
     "yt-dlp>=2024.8.0",
     "textual>=0.50.0",
@@ -29,8 +27,15 @@ dependencies = [
 ]
 
 [project.scripts]
-opentunes = "opentunes.main:main"
+opentunes = "opentunes:main"
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["opentunes*"]
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+    "ty>=0.0.108",
+]
