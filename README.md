@@ -8,7 +8,9 @@ Open-Source Music Aggregator for Spotify, YouTube, and YouTube Music. Downloads 
 [![License](https://img.shields.io/github/license/alphap365/openaudio)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/alphap365/openaudio?style=social)](https://github.com/alphap365/openaudio/stargazers)
 [![Last commit](https://img.shields.io/github/last-commit/alphap365/openaudio)](https://github.com/alphap365/openaudio/commits/main)
-
+[![PyPI](https://img.shields.io/pypi/v/pyopenaudio.svg?label=PyPI)](https://pypi.org/project/pyopenaudio/)
+[![CI](https://github.com/alphap365/OpenAudio/actions/workflows/ci.yml/badge.svg)](https://github.com/alphap365/OpenAudio/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/Docs-Reference-8A63D2)](docs/README.md)
 ---
 
 ### Documentation
@@ -36,6 +38,11 @@ uv sync
 uv run openaudio
 ```
 
+or Install Directly from pypi
+```bash
+uv pip install pyopenaudio
+uv run openaudio
+```
 `uv sync` creates and manages the project environment. Prefix project commands with `uv run`; this works on Linux, macOS, and PowerShell.
 
 #### Android (Termux)
