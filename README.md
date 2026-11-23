@@ -15,6 +15,7 @@ Open-Source Music downloader (yt-dlp reskin) for Spotify, YouTube, and YouTube M
 - [Termux guide](docs/termux.md)
 - [Architecture](docs/architecture.md)
 - [Components](docs/components.md)
+- [Repository script usage](docs/scripts.md)
 - [Contributing](CONTRIBUTING.md)
 - [Security policy](SECURITY.md)
 
@@ -37,6 +38,12 @@ uv run opentunes
 
 #### Android (Termux)
 See the [Termux guide](docs/termux.md) for installation, storage permissions, and mobile mode.
+
+### Repository scripts
+
+From a checkout, use `bash scripts/setup.sh` followed by `bash scripts/run.sh --help` on Linux, macOS, or Termux. On Windows, use `.\scripts\setup.bat` followed by `.\scripts\opentunes.bat --help`.
+
+See the [script usage guide](docs/scripts.md) for the launcher and installer details.
 
 ---
 
