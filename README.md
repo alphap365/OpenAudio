@@ -2,50 +2,41 @@
 
 Open-Source Music downloader (yt-dlp reskin) for Spotify, YouTube, and YouTube Music. Downloads songs, albums, and playlists with embedded cover art and lyrics. Available for Linux, Windows, MacOS and Android (Termux and App)
 
+[![Python 3.13+](https://img.shields.io/badge/python-3.13%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/github/license/radiantfalcon/OpenTunes)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/radiantfalcon/OpenTunes?style=social)](https://github.com/radiantfalcon/OpenTunes/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/radiantfalcon/OpenTunes)](https://github.com/radiantfalcon/OpenTunes/commits/main)
+
+---
+
+### Documentation
+
+- [Python API](docs/python-api.md)
+- [Termux guide](docs/termux.md)
+- [Architecture](docs/architecture.md)
+- [Components](docs/components.md)
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+
 ---
 
 ### Installation
 
-#### 1-Line Installer (Recommended)
-```bash
-curl -fsSL https://raw.githubusercontent.com/radiantfalcon/OpenTunes/main/install.sh | bash
-```
-*(If curl is not installed: `sudo apt install curl` on Debian/Ubuntu or `pkg install curl` on Termux)*
+OpenTunes requires Python 3.13 or newer and FFmpeg.
 
-Once installed, run OpenTunes from any terminal:
-```bash
-opentunes
-```
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if it is not already available, then clone and sync the project:
 
----
-
-### Manual Setup
-
-#### Linux / macOS
 ```bash
 git clone https://github.com/radiantfalcon/OpenTunes.git
 cd OpenTunes
-./setup.sh
-./run.sh
+uv sync
+uv run opentunes
 ```
+
+`uv sync` creates and manages the project environment. Prefix project commands with `uv run`; this works on Linux, macOS, and PowerShell.
 
 #### Android (Termux)
-```bash
-pkg update && pkg install -y python ffmpeg git
-git clone https://github.com/radiantfalcon/OpenTunes.git
-cd OpenTunes
-./setup.sh
-termux-setup-storage
-./run.sh --mobile
-```
-
-#### Windows
-```cmd
-git clone https://github.com/radiantfalcon/OpenTunes.git
-cd OpenTunes
-setup.bat
-opentunes.bat
-```
+See the [Termux guide](docs/termux.md) for installation, storage permissions, and mobile mode.
 
 ---
 
@@ -54,7 +45,7 @@ opentunes.bat
 #### 1. Interactive Mode
 Run without arguments to open the interactive dashboard:
 ```bash
-./run.sh
+uv run opentunes
 ```
 Key shortcuts inside the app:
 - `1` : Download tab
@@ -66,48 +57,48 @@ Key shortcuts inside the app:
 
 Download a Spotify playlist:
 ```bash
-./run.sh "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
+uv run opentunes "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
 ```
 
 Download a Spotify album in lossless FLAC:
 ```bash
-./run.sh "https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa" -f flac
+uv run opentunes "https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa" -f flac
 ```
 
 Download a YouTube / YouTube Music playlist in Opus:
 ```bash
-./run.sh "https://music.youtube.com/playlist?list=PL..." -f opus -q 160k
+uv run opentunes "https://music.youtube.com/playlist?list=PL..." -f opus -q 160k
 ```
 
 Search and download a song directly by name:
 ```bash
-./run.sh --search "Queen Bohemian Rhapsody"
+uv run opentunes --search "Queen Bohemian Rhapsody"
 ```
 
 Download to a custom folder:
 ```bash
-./run.sh "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" -o ~/Music/Rock
+uv run opentunes "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" -o ~/Music/Rock
 ```
 
 Batch download from a text file:
 ```bash
-./run.sh --batch urls.txt
+uv run opentunes --batch urls.txt
 ```
 *(urls.txt can have one Spotify link, YouTube link, or song query per line)*
 
 Save synced lyrics as a separate `.lrc` file:
 ```bash
-./run.sh "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" --lrc
+uv run opentunes "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" --lrc
 ```
 
 Run in simple mobile mode (recommended on narrow terminals / Termux):
 ```bash
-./run.sh --mobile
+uv run opentunes --mobile
 ```
 
 Check system environment and FFmpeg installation:
 ```bash
-./run.sh --check
+uv run opentunes --check
 ```
 
 ---
@@ -169,7 +160,7 @@ You can also change these settings interactively through the Settings tab (`[3]`
 
 ### Requirements
 
-- **Python**: 3.8 or newer
+- **Python**: 3.13 or newer
 - **FFmpeg**: Required for audio conversion and metadata embedding
 
 Installing FFmpeg:
@@ -181,6 +172,28 @@ Installing FFmpeg:
 
 ---
 
+### Development
+
+Install the development dependencies with [uv](https://docs.astral.sh/uv/):
+```bash
+uv sync --group dev
+```
+
+Run the test suite with:
+```bash
+uv run pytest
+```
+
+---
+
 ### License
 
 MIT
+
+---
+
+### Contributors
+
+Contributors are updated automatically:
+
+[![Contributors](https://contrib.rocks/image?repo=radiantfalcon/OpenTunes)](https://github.com/radiantfalcon/OpenTunes/graphs/contributors)
