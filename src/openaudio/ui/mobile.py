@@ -69,7 +69,7 @@ class MobileTUI:
                         continue
 
                     with open(batch_file, "r", encoding="utf-8") as f:
-                        urls = [l.strip() for l in f if l.strip() and not l.startswith("#")]
+                        urls = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
                     if not urls:
                         self.console.print("[bold white][ ERROR ] No URLs found.[/bold white]")
