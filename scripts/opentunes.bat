@@ -1,10 +1,13 @@
 @echo off
-set SCRIPT_DIR=%~dp0
-if exist "%SCRIPT_DIR%.venv\Scripts\python.exe" (
-    set PYTHON_EXEC="%SCRIPT_DIR%.venv\Scripts\python.exe"
-) else (
-    set PYTHON_EXEC=python
+setlocal
+pushd "%~dp0.." || exit /b 1
+where uv >nul 2>nul
+if errorlevel 1 (
+    echo Error: uv is required. Install it from https://docs.astral.sh/uv/getting-started/installation/.
+    popd
+    exit /b 1
 )
-
-set PYTHONPATH=%SCRIPT_DIR%;%PYTHONPATH%
-%PYTHON_EXEC% -m opentunes.main %*
+uv run opentunes %*
+set "EXIT_CODE=%ERRORLEVEL%"
+popd
+exit /b %EXIT_CODE%

@@ -1,23 +1,19 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-echo "🎧 Setting up OpenTunes in $SCRIPT_DIR..."
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-if [ -n "$TERMUX_VERSION" ] || [ -d "/data/data/com.termux" ]; then
-    echo "📱 Detected Termux environment."
-    echo "• Checking system packages..."
-    pkg update -y || true
-    pkg install -y python ffmpeg || true
+if [ -n "${TERMUX_VERSION:-}" ] || [ -d "/data/data/com.termux" ]; then
+    pkg install -y python ffmpeg
 fi
 
-echo "• Creating local Python virtual environment (.venv)..."
-python3 -m venv "$SCRIPT_DIR/.venv"
+if ! command -v uv >/dev/null 2>&1; then
+    echo "Error: uv is required. Install it from https://docs.astral.sh/uv/getting-started/installation/." >&2
+    exit 1
+fi
 
-echo "• Installing OpenTunes dependencies..."
-"$SCRIPT_DIR/.venv/bin/pip" install --upgrade pip
-"$SCRIPT_DIR/.venv/bin/pip" install -r "$SCRIPT_DIR/requirements.txt"
-
+cd "$PROJECT_DIR"
+uv sync
 chmod +x "$SCRIPT_DIR/run.sh" "$SCRIPT_DIR/opentunes_cli"
-echo "✅ OpenTunes setup complete!"
-echo "Run './run.sh' or './run.sh --help' to start."
+echo "OpenTunes is ready. Run 'bash scripts/run.sh --help' to see options."
