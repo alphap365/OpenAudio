@@ -231,6 +231,7 @@ class AudioTagger:
             if audio.tags is None:
                 audio.add_tags()
             tags = audio.tags
+            assert tags is not None
             tags.setall("TIT2", [TIT2(encoding=1, text=track.title)])
             tags.setall("TPE1", [TPE1(encoding=1, text=track.artist_str)])
             tags.setall("TALB", [TALB(encoding=1, text=track.album)])

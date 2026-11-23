@@ -131,9 +131,18 @@ class SpotifyExtractor:
     @classmethod
     def _parse_embed_track(cls, entity: dict, original_url: str) -> PlaylistInfo:
         title = entity.get("name") or entity.get("title") or "Unknown Track"
-        artists = [a.get("name") for a in entity.get("artists", []) if a.get("name")]
-        if not artists and entity.get("subtitle"):
-            artists = [entity.get("subtitle")]
+        artists: list[str] = []
+        raw_artists = entity.get("artists", [])
+        if isinstance(raw_artists, list):
+            for artist in raw_artists:
+                if isinstance(artist, dict):
+                    name = artist.get("name")
+                    if isinstance(name, str) and name:
+                        artists.append(name)
+
+        subtitle = entity.get("subtitle")
+        if not artists and isinstance(subtitle, str) and subtitle:
+            artists.append(subtitle)
         if not artists:
             artists = ["Unknown Artist"]
 
