@@ -4,7 +4,7 @@ import urllib.parse
 from typing import List, Optional, Tuple
 import requests
 
-from opentunes.core.models import PlaylistInfo, TrackMetadata
+from openaudio.core.models import PlaylistInfo, TrackMetadata
 
 class SpotifyExtractor:
 

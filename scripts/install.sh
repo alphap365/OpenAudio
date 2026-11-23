@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="https://github.com/radiantfalcon/OpenTunes.git"
-INSTALL_DIR="${OPENTUNES_DIR:-$HOME/.local/share/opentunes}"
+REPO_URL="https://github.com/alphap365/openaudio.git"
+INSTALL_DIR="${OPENAUDIO_DIR:-$HOME/.local/share/openaudio}"
 
 if ! command -v git >/dev/null 2>&1; then
     echo "Error: git is required." >&2
@@ -16,7 +16,7 @@ fi
 
 if [ -e "$INSTALL_DIR" ]; then
     if [ ! -d "$INSTALL_DIR/.git" ]; then
-        echo "Error: $INSTALL_DIR exists and is not a Git checkout. Set OPENTUNES_DIR to another path." >&2
+        echo "Error: $INSTALL_DIR exists and is not a Git checkout. Set OPENAUDIO_DIR to another path." >&2
         exit 1
     fi
 
@@ -41,12 +41,12 @@ else
 fi
 
 mkdir -p "$BIN_DIR"
-WRAPPER_PATH="$BIN_DIR/opentunes"
-printf '#!/usr/bin/env bash\ncd %q\nexec uv run opentunes "$@"\n' "$INSTALL_DIR" > "$WRAPPER_PATH"
+WRAPPER_PATH="$BIN_DIR/openaudio"
+printf '#!/usr/bin/env bash\ncd %q\nexec uv run openaudio "$@"\n' "$INSTALL_DIR" > "$WRAPPER_PATH"
 chmod +x "$WRAPPER_PATH"
 
-echo "OpenTunes installed to $INSTALL_DIR."
-echo "Run 'opentunes' to start."
+echo "OpenAudio installed to $INSTALL_DIR."
+echo "Run 'openaudio' to start."
 if [[ ":$PATH:" != *":$BIN_DIR:"* ]]; then
-    echo "Add $BIN_DIR to PATH to run 'opentunes' from any directory."
+    echo "Add $BIN_DIR to PATH to run 'openaudio' from any directory."
 fi

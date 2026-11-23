@@ -7,7 +7,7 @@ if errorlevel 1 (
     popd
     exit /b 1
 )
-uv run opentunes %*
+uv run openaudio %*
 set "EXIT_CODE=%ERRORLEVEL%"
 popd
 exit /b %EXIT_CODE%

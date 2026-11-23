@@ -24,31 +24,34 @@ from textual.widgets import (
     Static,
 )
 
-from opentunes import __version__
-from opentunes.core.config import get_download_options, load_config, save_config
-from opentunes.core.models import DownloadOptions, DownloadProgress, PlaylistInfo, TrackMetadata, TrackStatus
-from opentunes.core.pipeline import DownloadPipeline
-from opentunes.utils.formatting import format_duration
-from opentunes.utils.system import (
+from openaudio import __version__
+from openaudio.core.config import get_download_options, load_config, save_config
+from openaudio.core.models import DownloadOptions, DownloadProgress, PlaylistInfo, TrackMetadata, TrackStatus
+from openaudio.core.pipeline import DownloadPipeline
+from openaudio.utils.formatting import format_duration
+from openaudio.utils.system import (
     check_internet_connection,
     get_default_music_dir,
     get_ffmpeg_path,
     is_ffmpeg_available,
 )
 
-BANNER_BLOCK = """                                          ▄▄                                           
-                                          ▓▀ ▀                                         
-  ▄▄▓▀▓▄▄ ▐▒▀ ▄▀▓▄▄   ▄▄▓▀▓▄▄ ▐▒▀ ▄▀▓▄▄ ▄▄▒ ▓▄▄▐▓▀░   ░ ▄▐▒▀ ▄▀▓▄▄   ▄▄▓▀▓▄▄   ▄▄▓▀▓▄▄ 
- ▒▀    ▒▀ ▐░     ░   ▒▀    ░  ▐░     ░    ░    ▐░     ░  ▐░     ░   ▒▀    ░  ▐▒▀    ▀▀▀
-▐░ ▓   ░ ▓▐░▀░   ░▄ ▐░ ▓▀▀▀▀▀▀▐░▀░   ░▄  ░▒▄░  ▐▒▄▓   ▒▄▓▐░▀░   ░▄ ▐░ ▓▀▀▀▀▀▀ ▀▀▀▀▀▀░▒▄
- ▓░▄   ░▓█ ▒█▒   ▒█▓ ▓░▄   ░▓█ ▒█▒   ▒█▓  ▓█▒  ▐▓█▓   ▓▀▓ ▒█▒   ▒█▓ ▓░▄   ░▓█ ▓░▄   ░▓█
-  ▀▀▓▄▓▀▀  ▓▓▓ ▀▄▓▀▀  ▀▀▓▄▓▀▀  ▓▓▓   ▓▀▓  ▀▓▓▄  ▀██▀▄███▀ ▓▓▓   ▓▀▓  ▀▀▓▄▓▀▀   ▀▀▓▄▓▀▀ 
-           ▀▓█                                                                         
-             ▀                                                                         """
+BANNER_BLOCK = """
+ ▒█████   ██▓███  ▓█████  ███▄    █  ▄▄▄       █    ██ ▓█████▄  ██▓ ▒█████  
+▒██▒  ██▒▓██░  ██▒▓█   ▀  ██ ▀█   █ ▒████▄     ██  ▓██▒▒██▀ ██▌▓██▒▒██▒  ██▒
+▒██░  ██▒▓██░ ██▓▒▒███   ▓██  ▀█ ██▒▒██  ▀█▄  ▓██  ▒██░░██   █▌▒██▒▒██░  ██▒
+▒██   ██░▒██▄█▓▒ ▒▒▓█  ▄ ▓██▒  ▐▌██▒░██▄▄▄▄██ ▓▓█  ░██░░▓█▄   ▌░██░▒██   ██░
+░ ████▓▒░▒██▒ ░  ░░▒████▒▒██░   ▓██░ ▓█   ▓██▒▒▒█████▓ ░▒████▓ ░██░░ ████▓▒░
+░ ▒░▒░▒░ ▒▓▒░ ░  ░░░ ▒░ ░░ ▒░   ▒ ▒  ▒▒   ▓▒█░░▒▓▒ ▒ ▒  ▒▒▓  ▒ ░▓  ░ ▒░▒░▒░ 
+  ░ ▒ ▒░ ░▒ ░      ░ ░  ░░ ░░   ░ ▒░  ▒   ▒▒ ░░░▒░ ░ ░  ░ ▒  ▒  ▒ ░  ░ ▒ ▒░ 
+░ ░ ░ ▒  ░░          ░      ░   ░ ░   ░   ▒    ░░░ ░ ░  ░ ░  ░  ▒ ░░ ░ ░ ▒  
+    ░ ░              ░  ░         ░       ░  ░   ░        ░     ░      ░ ░  
+                                                        ░                   
+"""
 
-class OpenTunesApp(App):
+class OpenAudioApp(App):
 
-    TITLE = f"OPENTUNES v{__version__}"
+    TITLE = f"OPENAUDIO v{__version__}"
     SUB_TITLE = ""
 
     CSS = """
@@ -961,10 +964,10 @@ class OpenTunesApp(App):
         metrics_lbl.update("Status: [ FAILED ]")
 
 def run_interactive_tui() -> None:
-    app = OpenTunesApp()
+    app = OpenAudioApp()
     app.run()
 
-class OpenTunesTUI:
+class OpenAudioTUI:
 
     @classmethod
     def start(cls) -> None:

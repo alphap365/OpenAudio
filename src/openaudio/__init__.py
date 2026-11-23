@@ -1,5 +1,5 @@
 
-__version__ = "1.0.2"
+__version__ = "1.0.0"
 
 from .core.config import get_download_options, load_config, save_config
 from .main import main, normalize_quality, parse_args

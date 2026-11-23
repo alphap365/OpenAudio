@@ -2,12 +2,12 @@ from pathlib import Path
 from typing import Optional, Tuple
 import requests
 
-from opentunes.core.models import TrackMetadata
+from openaudio.core.models import TrackMetadata
 
 class LyricsFetcher:
 
     API_URL = "https://lrclib.net/api/get"
-    USER_AGENT = "OpenTunes/1.0 (https://github.com/opentunes/opentunes)"
+    USER_AGENT = "OpenAudio/1.0 (https://github.com/alphap365/openaudio)"
 
     @classmethod
     def fetch_lyrics(cls, track: TrackMetadata) -> Tuple[Optional[str], Optional[str]]:

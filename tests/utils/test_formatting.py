@@ -1,4 +1,4 @@
-from opentunes.utils.formatting import (
+from openaudio.utils.formatting import (
     clean_artist_name,
     format_bytes,
     format_duration,

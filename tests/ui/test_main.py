@@ -1,6 +1,6 @@
 import sys
 
-from opentunes.main import normalize_quality, parse_args
+from openaudio.main import normalize_quality, parse_args
 
 
 def test_normalize_quality_accepts_common_aliases():
@@ -13,7 +13,7 @@ def test_parse_args_reads_search_format_and_bitrate(monkeypatch):
     monkeypatch.setattr(
         sys,
         "argv",
-        ["opentunes", "--search", "Artist Song", "--format", "flac", "--quality", "192k"],
+        ["openaudio", "--search", "Artist Song", "--format", "flac", "--quality", "192k"],
     )
 
     args = parse_args()

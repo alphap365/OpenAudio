@@ -17,12 +17,12 @@ from rich.progress import (
     TransferSpeedColumn,
 )
 
-from opentunes.core.config import get_download_options, load_config
-from opentunes.core.models import DownloadOptions, DownloadProgress, PlaylistInfo, TrackStatus
-from opentunes.core.pipeline import DownloadPipeline
-from opentunes.ui.mobile import MobileUI
-from opentunes.ui.progress import DownloadUI
-from opentunes.utils.system import (
+from openaudio.core.config import get_download_options, load_config
+from openaudio.core.models import DownloadOptions, DownloadProgress, PlaylistInfo, TrackStatus
+from openaudio.core.pipeline import DownloadPipeline
+from openaudio.ui.mobile import MobileUI
+from openaudio.ui.progress import DownloadUI
+from openaudio.utils.system import (
     check_internet_connection,
     get_default_music_dir,
     get_ffmpeg_install_instructions,
@@ -35,7 +35,7 @@ from opentunes.utils.system import (
 console = Console()
 
 def run_diagnostics():
-    console.print("\n[bold white]=== [ OPENTUNES SYSTEM DIAGNOSTICS ] ===[/bold white]")
+    console.print("\n[bold white]=== [ OPENAUDIO SYSTEM DIAGNOSTICS ] ===[/bold white]")
     console.print("═" * 45)
 
     plat = get_platform_name()

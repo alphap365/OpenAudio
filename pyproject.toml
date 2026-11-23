@@ -1,11 +1,10 @@
 [project]
-name = "opentunes"
-version = "1.0.2"
+name = "openaudio"
+version = "1.0.0"
 description = "Lightweight, cross-platform music downloader and offline music player for YouTube Music & Spotify."
 readme = "README.md"
 authors = [
     { name = "alphap365", email = "arajitpaul2010@gmail.com" },
-    { name = "radiantfalcon" }
 ]
 keywords = ["music", "downloader", "spotify", "youtube", "ytmusic", "termux", "tui", "offline-player"]
 classifiers = [
@@ -27,7 +26,7 @@ dependencies = [
 ]
 
 [project.scripts]
-opentunes = "opentunes:main"
+openaudio = "openaudio:main"
 
 [build-system]
 requires = ["uv_build>=0.13.8,<0.14.0"]

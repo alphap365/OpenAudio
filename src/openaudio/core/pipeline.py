@@ -2,20 +2,20 @@ from pathlib import Path
 from typing import Callable, List, Optional
 import yt_dlp
 
-from opentunes.core.downloader import AudioDownloader
-from opentunes.core.lyrics import LyricsFetcher
-from opentunes.core.matcher import AudioMatcher
-from opentunes.core.models import (
+from openaudio.core.downloader import AudioDownloader
+from openaudio.core.lyrics import LyricsFetcher
+from openaudio.core.matcher import AudioMatcher
+from openaudio.core.models import (
     DownloadOptions,
     DownloadProgress,
     PlaylistInfo,
     TrackMetadata,
     TrackStatus,
 )
-from opentunes.core.sequencer import Sequencer
-from opentunes.core.spotify import SpotifyExtractor
-from opentunes.core.tagger import AudioTagger
-from opentunes.core.youtube import YouTubeExtractor
+from openaudio.core.sequencer import Sequencer
+from openaudio.core.spotify import SpotifyExtractor
+from openaudio.core.tagger import AudioTagger
+from openaudio.core.youtube import YouTubeExtractor
 
 class DownloadPipeline:
 

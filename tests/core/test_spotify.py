@@ -1,4 +1,4 @@
-from opentunes.core.spotify import SpotifyExtractor
+from openaudio.core.spotify import SpotifyExtractor
 
 
 def test_parse_embed_track_filters_missing_artist_names():

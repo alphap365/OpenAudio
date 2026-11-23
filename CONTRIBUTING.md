@@ -4,7 +4,7 @@ Contributions are welcome. For substantial changes, open an issue first to discu
 
 ## Development setup
 
-OpenTunes requires Python 3.13 or newer and FFmpeg. Install [uv](https://docs.astral.sh/uv/), then run:
+OpenAudio requires Python 3.13 or newer and FFmpeg. Install [uv](https://docs.astral.sh/uv/), then run:
 
 ```bash
 uv sync --group dev

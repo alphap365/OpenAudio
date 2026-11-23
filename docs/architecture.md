@@ -1,6 +1,6 @@
 # Architecture
 
-OpenTunes is a Python package under `src/opentunes`. The command-line entry point is declared in `pyproject.toml` and delegates to `opentunes:main`.
+OpenAudio is a Python package under `src/openaudio`. The command-line entry point is declared in `pyproject.toml` and delegates to `openaudio:main`.
 
 ## Request flow
 

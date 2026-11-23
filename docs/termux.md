@@ -1,6 +1,6 @@
 # Termux guide
 
-OpenTunes runs as a Python command-line app in Termux. It requires Python 3.13 or newer and the system `ffmpeg` executable.
+OpenAudio runs as a Python command-line app in Termux. It requires Python 3.13 or newer and the system `ffmpeg` executable.
 
 ## Install
 
@@ -19,11 +19,11 @@ OpenTunes runs as a Python command-line app in Termux. It requires Python 3.13 o
 
    It must report Python 3.13 or newer.
 
-3. Clone OpenTunes:
+3. Clone OpenAudio:
 
    ```bash
-   git clone https://github.com/radiantfalcon/OpenTunes.git
-   cd OpenTunes
+   git clone https://github.com/alphap365/openaudio.git
+   cd OpenAudio
    ```
 
 4. Install the project. If `uv` is available in your Termux environment:
@@ -43,27 +43,27 @@ OpenTunes runs as a Python command-line app in Termux. It requires Python 3.13 o
 5. Start the compact mobile interface:
 
    ```bash
-   uv run opentunes --mobile
+   uv run openaudio --mobile
    ```
 
-   If you installed with pip, use `.venv/bin/opentunes --mobile`.
+   If you installed with pip, use `.venv/bin/openaudio --mobile`.
 
 To run a download directly, pass a URL or search query:
 
 ```bash
-.venv/bin/opentunes "https://music.youtube.com/playlist?list=PLAYLIST_ID" --mobile
-.venv/bin/opentunes --search "Artist Song" --mobile
+.venv/bin/openaudio "https://music.youtube.com/playlist?list=PLAYLIST_ID" --mobile
+.venv/bin/openaudio --search "Artist Song" --mobile
 ```
 
 ## Shared music storage
 
-To let OpenTunes write to shared Android storage, grant Termux storage access:
+To let OpenAudio write to shared Android storage, grant Termux storage access:
 
 ```bash
 termux-setup-storage
 ```
 
-Accept Android's permission prompt. OpenTunes uses a writable shared Music directory when available; otherwise its fallback is `~/Music`. You can also set `output_dir` in the OpenTunes configuration file to a directory under `~/storage/shared`.
+Accept Android's permission prompt. OpenAudio uses a writable shared Music directory when available; otherwise its fallback is `~/Music`. You can also set `output_dir` in the OpenAudio configuration file to a directory under `~/storage/shared`.
 
 ## Troubleshooting
 

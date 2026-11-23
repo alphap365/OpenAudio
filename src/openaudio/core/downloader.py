@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Callable, Optional
 import yt_dlp
 
-from opentunes.core.models import DownloadOptions, DownloadProgress, TrackMetadata, TrackStatus
+from openaudio.core.models import DownloadOptions, DownloadProgress, TrackMetadata, TrackStatus
 
 class AudioDownloader:
 
@@ -45,7 +45,7 @@ class AudioDownloader:
                 progress_callback(prog)
             return dest_path
 
-        temp_dir = Path(tempfile.mkdtemp(prefix="opentunes_"))
+        temp_dir = Path(tempfile.mkdtemp(prefix="openaudio_"))
         temp_out_template = str(temp_dir / "%(id)s.%(ext)s")
 
         fmt = options.format.lower()

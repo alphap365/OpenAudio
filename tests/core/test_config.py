@@ -1,6 +1,6 @@
 import json
 
-from opentunes.core import config
+from openaudio.core import config
 
 
 def test_load_config_merges_saved_values_with_defaults(config_file):

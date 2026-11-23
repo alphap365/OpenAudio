@@ -4,9 +4,9 @@ from pathlib import Path
 from rich.console import Console
 from rich.prompt import Prompt
 
-from opentunes.core.config import get_download_options, load_config, save_config
-from opentunes.core.models import DownloadProgress, PlaylistInfo, TrackStatus
-from opentunes.utils.system import get_default_music_dir
+from openaudio.core.config import get_download_options, load_config, save_config
+from openaudio.core.models import DownloadProgress, PlaylistInfo, TrackStatus
+from openaudio.utils.system import get_default_music_dir
 
 class MobileUI:
 
@@ -41,7 +41,7 @@ class MobileTUI:
         self.ui = MobileUI()
 
     def start(self):
-        from opentunes.ui.cli import execute_download
+        from openaudio.ui.cli import execute_download
 
         while True:
             self.console.clear()
@@ -89,7 +89,7 @@ class MobileTUI:
                 self._handle_settings()
 
             elif choice == "4":
-                from opentunes.ui.cli import run_diagnostics
+                from openaudio.ui.cli import run_diagnostics
                 self.console.clear()
                 run_diagnostics()
                 Prompt.ask("\n[dim]Press Enter to continue...[/dim]")
@@ -105,7 +105,7 @@ class MobileTUI:
         out_dir = cfg.get("output_dir", str(get_default_music_dir()))
 
         fmt_str = f"{fmt.upper()} {bitrate}" if fmt.lower() == "mp3" else fmt.upper()
-        self.console.print("[bold white]OPENTUNES[/bold white]")
+        self.console.print("[bold white]OPENAUDIO[/bold white]")
         self.console.print(f"[dim]{fmt_str} | {concurrent} concurrent | {out_dir}[/dim]\n")
         self.console.print("[bold white]1.[/bold white] Download URL or Search")
         self.console.print("[bold white]2.[/bold white] Batch Download (.txt)")

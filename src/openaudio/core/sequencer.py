@@ -1,8 +1,8 @@
 from pathlib import Path
 from typing import List
 
-from opentunes.core.models import DownloadOptions, TrackMetadata
-from opentunes.utils.formatting import pad_number, sanitize_filename
+from openaudio.core.models import DownloadOptions, TrackMetadata
+from openaudio.utils.formatting import pad_number, sanitize_filename
 
 class Sequencer:
 

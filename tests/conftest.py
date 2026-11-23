@@ -1,7 +1,7 @@
 import pytest
 
-from opentunes.core import config
-from opentunes.core.models import DownloadOptions, TrackMetadata
+from openaudio.core import config
+from openaudio.core.models import DownloadOptions, TrackMetadata
 
 
 @pytest.fixture

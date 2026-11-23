@@ -3,10 +3,10 @@ import os
 from pathlib import Path
 from typing import Any, Dict
 
-from opentunes.core.models import DownloadOptions
-from opentunes.utils.system import get_default_music_dir
+from openaudio.core.models import DownloadOptions
+from openaudio.utils.system import get_default_music_dir
 
-CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "opentunes"
+CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "openaudio"
 CONFIG_FILE = CONFIG_DIR / "config.json"
 
 DEFAULT_CONFIG: Dict[str, Any] = {
@@ -47,7 +47,7 @@ def save_config(config: Dict[str, Any]) -> None:
         with open(CONFIG_FILE, "w", encoding="utf-8") as f:
             json.dump(config, f, indent=2)
     except Exception:
-        local_cfg = Path.cwd() / "opentunes_config.json"
+        local_cfg = Path.cwd() / "openaudio_config.json"
         with open(local_cfg, "w", encoding="utf-8") as f:
             json.dump(config, f, indent=2)
 

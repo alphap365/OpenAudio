@@ -23,7 +23,7 @@ from mutagen.id3 import (
 from mutagen.mp4 import MP4, MP4Cover
 from mutagen.oggopus import OggOpus
 
-from opentunes.core.models import TrackMetadata
+from openaudio.core.models import TrackMetadata
 
 class AudioTagger:
 

@@ -15,5 +15,5 @@ fi
 
 cd "$PROJECT_DIR"
 uv sync
-chmod +x "$SCRIPT_DIR/run.sh" "$SCRIPT_DIR/opentunes_cli"
-echo "OpenTunes is ready. Run 'bash scripts/run.sh --help' to see options."
+chmod +x "$SCRIPT_DIR/run.sh" "$SCRIPT_DIR/openaudio_cli"
+echo "OpenAudio is ready. Run 'bash scripts/run.sh --help' to see options."

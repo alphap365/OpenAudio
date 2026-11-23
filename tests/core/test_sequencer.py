@@ -1,4 +1,4 @@
-from opentunes.core.sequencer import Sequencer
+from openaudio.core.sequencer import Sequencer
 
 
 def test_destination_path_sanitizes_folder_and_filename(

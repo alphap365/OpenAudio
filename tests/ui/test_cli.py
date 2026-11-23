@@ -1,5 +1,5 @@
-from opentunes.core.models import DownloadOptions
-from opentunes.ui import cli
+from openaudio.core.models import DownloadOptions
+from openaudio.ui import cli
 
 
 class StubDownloadUI:

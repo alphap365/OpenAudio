@@ -3,7 +3,7 @@ from typing import Dict, List, Optional, Set, Tuple
 from rapidfuzz import fuzz
 import yt_dlp
 
-from opentunes.core.models import TrackMetadata
+from openaudio.core.models import TrackMetadata
 
 class AudioMatcher:
 

@@ -2,13 +2,13 @@ import argparse
 import sys
 from pathlib import Path
 
-from opentunes import __version__
-from opentunes.core.config import get_download_options
-from opentunes.ui.cli import execute_download, run_diagnostics
-from opentunes.ui.mobile import MobileTUI
-from opentunes.ui.progress import DownloadUI
-from opentunes.ui.tui import OpenTunesApp
-from opentunes.utils.system import is_narrow_screen, is_termux
+from openaudio import __version__
+from openaudio.core.config import get_download_options
+from openaudio.ui.cli import execute_download, run_diagnostics
+from openaudio.ui.mobile import MobileTUI
+from openaudio.ui.progress import DownloadUI
+from openaudio.ui.tui import OpenAudioApp
+from openaudio.utils.system import is_narrow_screen, is_termux
 
 def normalize_quality(q: str | None) -> str | None:
     if not q:
@@ -28,8 +28,8 @@ def normalize_quality(q: str | None) -> str | None:
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        prog="opentunes",
-        description="OpenTunes - High-Quality Cross-Platform Music Downloader for Spotify & YouTube",
+        prog="openaudio",
+        description="OpenAudio - High-Quality Cross-Platform Music Downloader for Spotify & YouTube",
     )
 
     parser.add_argument(
@@ -129,7 +129,7 @@ def parse_args():
         "-v",
         "--version",
         action="version",
-        version=f"OpenTunes {__version__}",
+        version=f"OpenAudio {__version__}",
     )
 
     return parser.parse_args()
@@ -143,7 +143,7 @@ def main():
 
     if args.tui or (not args.url_or_query and not args.batch and not args.search):
         if not sys.stdin.isatty():
-            print("OpenTunes: No input URL provided. Use 'opentunes --help' for usage.")
+            print("OpenAudio: No input URL provided. Use 'openaudio --help' for usage.")
             sys.exit(1)
 
         if args.mobile or is_termux() or (is_narrow_screen() and not args.tui):
@@ -152,7 +152,7 @@ def main():
             sys.exit(0)
         else:
 
-            app = OpenTunesApp()
+            app = OpenAudioApp()
             app.run()
             sys.exit(0)
 

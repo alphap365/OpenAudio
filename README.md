@@ -1,11 +1,11 @@
-<img width="828" height="294" alt="opentunes" src="https://github.com/user-attachments/assets/f26c9103-fe9e-43dd-b523-faf1c98c723f" />
+<img width="828" height="294" alt="openaudio" src="docs/assets/banner.webp" />
 
-Open-Source Music downloader (yt-dlp reskin) for Spotify, YouTube, and YouTube Music. Downloads songs, albums, and playlists with embedded cover art and lyrics. Available for Linux, Windows, MacOS and Android (Termux and App)
+Open-Source Music Aggregator for Spotify, YouTube, and YouTube Music. Downloads songs, albums, and playlists with embedded cover art and lyrics. Available for Linux, Windows, MacOS and Android (Termux)
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/github/license/radiantfalcon/OpenTunes)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/radiantfalcon/OpenTunes?style=social)](https://github.com/radiantfalcon/OpenTunes/stargazers)
-[![Last commit](https://img.shields.io/github/last-commit/radiantfalcon/OpenTunes)](https://github.com/radiantfalcon/OpenTunes/commits/main)
+[![License](https://img.shields.io/github/license/alphap365/openaudio)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/alphap365/openaudio?style=social)](https://github.com/alphap365/openaudio/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/alphap365/openaudio)](https://github.com/alphap365/openaudio/commits/main)
 
 ---
 
@@ -23,15 +23,15 @@ Open-Source Music downloader (yt-dlp reskin) for Spotify, YouTube, and YouTube M
 
 ### Installation
 
-OpenTunes requires Python 3.13 or newer and FFmpeg.
+OpenAudio requires Python 3.13 or newer and FFmpeg.
 
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if it is not already available, then clone and sync the project:
 
 ```bash
-git clone https://github.com/radiantfalcon/OpenTunes.git
-cd OpenTunes
+git clone https://github.com/alphap365/openaudio.git
+cd OpenAudio
 uv sync
-uv run opentunes
+uv run openaudio
 ```
 
 `uv sync` creates and manages the project environment. Prefix project commands with `uv run`; this works on Linux, macOS, and PowerShell.
@@ -41,7 +41,7 @@ See the [Termux guide](docs/termux.md) for installation, storage permissions, an
 
 ### Repository scripts
 
-From a checkout, use `bash scripts/setup.sh` followed by `bash scripts/run.sh --help` on Linux, macOS, or Termux. On Windows, use `.\scripts\setup.bat` followed by `.\scripts\opentunes.bat --help`.
+From a checkout, use `bash scripts/setup.sh` followed by `bash scripts/run.sh --help` on Linux, macOS, or Termux. On Windows, use `.\scripts\setup.bat` followed by `.\scripts\openaudio.bat --help`.
 
 See the [script usage guide](docs/scripts.md) for the launcher and installer details.
 
@@ -52,7 +52,7 @@ See the [script usage guide](docs/scripts.md) for the launcher and installer det
 #### 1. Interactive Mode
 Run without arguments to open the interactive dashboard:
 ```bash
-uv run opentunes
+uv run openaudio
 ```
 Key shortcuts inside the app:
 - `1` : Download tab
@@ -64,48 +64,48 @@ Key shortcuts inside the app:
 
 Download a Spotify playlist:
 ```bash
-uv run opentunes "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
+uv run openaudio "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
 ```
 
 Download a Spotify album in lossless FLAC:
 ```bash
-uv run opentunes "https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa" -f flac
+uv run openaudio "https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa" -f flac
 ```
 
 Download a YouTube / YouTube Music playlist in Opus:
 ```bash
-uv run opentunes "https://music.youtube.com/playlist?list=PL..." -f opus -q 160k
+uv run openaudio "https://music.youtube.com/playlist?list=PL..." -f opus -q 160k
 ```
 
 Search and download a song directly by name:
 ```bash
-uv run opentunes --search "Queen Bohemian Rhapsody"
+uv run openaudio --search "Queen Bohemian Rhapsody"
 ```
 
 Download to a custom folder:
 ```bash
-uv run opentunes "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" -o ~/Music/Rock
+uv run openaudio "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" -o ~/Music/Rock
 ```
 
 Batch download from a text file:
 ```bash
-uv run opentunes --batch urls.txt
+uv run openaudio --batch urls.txt
 ```
 *(urls.txt can have one Spotify link, YouTube link, or song query per line)*
 
 Save synced lyrics as a separate `.lrc` file:
 ```bash
-uv run opentunes "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" --lrc
+uv run openaudio "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" --lrc
 ```
 
 Run in simple mobile mode (recommended on narrow terminals / Termux):
 ```bash
-uv run opentunes --mobile
+uv run openaudio --mobile
 ```
 
 Check system environment and FFmpeg installation:
 ```bash
-uv run opentunes --check
+uv run openaudio --check
 ```
 
 ---
@@ -143,8 +143,8 @@ uv run opentunes --check
 ### Configuration
 
 Settings persist across runs and are saved at:
-- **Linux / Android**: `~/.config/opentunes/config.json`
-- **Windows**: `%USERPROFILE%\.config\opentunes\config.json`
+- **Linux / Android**: `~/.config/openaudio/config.json`
+- **Windows**: `%USERPROFILE%\.config\openaudio\config.json`
 
 Example `config.json`:
 ```json
@@ -203,4 +203,4 @@ MIT
 
 Contributors are updated automatically:
 
-[![Contributors](https://contrib.rocks/image?repo=radiantfalcon/OpenTunes)](https://github.com/radiantfalcon/OpenTunes/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=alphap365/openaudio)](https://github.com/alphap365/openaudio/graphs/contributors)

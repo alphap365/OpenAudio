@@ -1,6 +1,6 @@
 # Components
 
-This page maps the source package to its primary responsibilities. Paths are relative to `src/opentunes`.
+This page maps the source package to its primary responsibilities. Paths are relative to `src/openaudio`.
 
 | Component | Responsibility |
 |---|---|

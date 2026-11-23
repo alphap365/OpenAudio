@@ -18,7 +18,7 @@ from rich.progress import (
 from rich.table import Table
 from rich.text import Text
 
-from opentunes.core.models import DownloadProgress, PlaylistInfo, TrackMetadata, TrackStatus
+from openaudio.core.models import DownloadProgress, PlaylistInfo, TrackMetadata, TrackStatus
 
 console = Console()
 
@@ -34,7 +34,7 @@ class DownloadUI:
     def display_banner(self):
         banner_text = Text()
         banner_text.append("+===========================================+\n", style="bold white")
-        banner_text.append("|            O P E N T U N E S              |\n", style="bold black on white")
+        banner_text.append("|            O P E N A U D I O              |\n", style="bold black on white")
         banner_text.append("|   High-Fidelity Music Downloader v1.0.0   |\n", style="bold white")
         banner_text.append("+===========================================+", style="bold white")
         self.console.print(banner_text)

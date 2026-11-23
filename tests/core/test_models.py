@@ -1,4 +1,4 @@
-from opentunes.core.models import TrackMetadata
+from openaudio.core.models import TrackMetadata
 
 
 def test_track_metadata_derives_artist_fields(track_metadata):

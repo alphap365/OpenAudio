@@ -3,7 +3,7 @@ import urllib.parse
 from typing import List, Optional, Tuple
 import yt_dlp
 
-from opentunes.core.models import PlaylistInfo, TrackMetadata
+from openaudio.core.models import PlaylistInfo, TrackMetadata
 
 class YouTubeExtractor:
 
